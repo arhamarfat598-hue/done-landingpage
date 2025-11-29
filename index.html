@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>EasyFly – Flight Search</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- TOP NAVBAR -->
+  <header class="topbar">
+    <div class="nav-left">
+      <div class="logo-text">EasyFly</div>
+    </div>
+    <nav class="nav-right">
+      <a href="#hero">Explore</a>
+      <a href="#results">My Trips</a>
+      <a href="#help">Need Help?</a>
+      <button class="nav-signin">Sign In</button>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION WITH BACKGROUND IMAGE -->
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-bg"></div>
+
+      <!-- Glass card -->
+      <div class="hero-center">
+        <div class="booking-card">
+          <!-- Tabs -->
+          <div class="tabs">
+            <button class="tab active" data-trip="oneway">One Way</button>
+            <button class="tab" data-trip="round">Round Trip</button>
+            <button class="tab" data-trip="multi">Multi-City</button>
+          </div>
+
+          <!-- Form -->
+          <form id="searchForm" class="form-grid">
+            <div class="field span-2">
+              <label for="from">From</label>
+              <div class="field-inner">
+                <span class="field-icon">✈️</span>
+                <input
+                  id="from"
+                  placeholder="Departure city or airport"
+                  autocomplete="off"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="field span-2">
+              <label for="to">To</label>
+              <div class="field-inner">
+                <span class="field-icon">📍</span>
+                <input
+                  id="to"
+                  placeholder="Select your destination"
+                  autocomplete="off"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="date">Departure date</label>
+              <div class="field-inner">
+                <span class="field-icon">📅</span>
+                <input id="date" type="date" required />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="returnDate">Return date</label>
+              <div class="field-inner">
+                <span class="field-icon">↩️</span>
+                <input id="returnDate" type="date" />
+              </div>
+            </div>
+
+            <div class="field span-2">
+              <label for="passengers">Passengers & class</label>
+              <div class="field-inner">
+                <span class="field-icon">👤</span>
+                <select id="passengers">
+                  <option>1 Passenger, Economy</option>
+                  <option>2 Passengers, Economy</option>
+                  <option>3 Passengers, Economy</option>
+                  <option>4+ Passengers, Economy</option>
+                  <option>1 Passenger, Business</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" class="search-btn">
+              Search Flights
+            </button>
+          </form>
+
+          <div id="searchStatus" class="status"></div>
+        </div>
+      </div>
+
+      <!-- Bottom features -->
+      <div class="hero-features" id="help">
+        <div class="feature">
+          <div class="feature-icon">📍</div>
+          <div class="feature-title">Discover Top Destinations</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">💼</div>
+          <div class="feature-title">Find the Best Deals</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🛡️</div>
+          <div class="feature-title">Safe & Secure Booking</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS SECTION -->
+    <section class="results-section" id="results">
+      <h2>Search results</h2>
+      <p class="results-note">
+        Distance & flight duration from AeroDataBox · Fare is an estimated
+        one-way price in <strong>USD</strong>.
+      </p>
+      <div id="apiResults" class="results-grid"></div>
+    </section>
+
+    <footer class="footer">
+      <span>© 2025 EasyFly · Demo landing page</span>
+      <span>Powered by AeroDataBox (RapidAPI)</span>
+    </footer>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
